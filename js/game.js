@@ -19,7 +19,7 @@ function playerTurn() {
     if (outcome === 'rock' || outcome === 'paper' || outcome === 'scissors') {
         return outcome;
     } else {
-        console.log('Invalid response.');
+        alert('Invalid response, please try again.');
         return playerTurn();
     }
 }
@@ -94,4 +94,4 @@ function capitalise(string) {
     return string[0].toUpperCase() + string.slice(1);
 }
 
-console.log(startMatch());
+// startMatch();
