@@ -9,25 +9,40 @@
     <script src="./js/game.js" defer></script>
 </head>
 <body>
-    <div class="flex-container-full">
-        <div id="header">
-            <h1>Rock Paper Scissors</h1>
+    <div id="header">
+        <h1>Rock Paper Scissors</h1>
+    </div>
+    <div id="content" class="flex-column-centre">
+        <div>
+            <p>Choose a move.</p>
         </div>
-        <div id="content" class="flex-column-centre">
-            <div id="buttons">
-                <button>🪨</button>
-                <button>📝</button>
-                <button>✂️</button>
-            </div>
-            <div id="play-area" class="flex-container">
-                <div class="area">
-                    <h2>User</h2>
-                </div>
-                <div class="area">
-                    <h2>Computer</h2>
-                </div>
-            </div>
+        <div id="buttons">
+            <button>🪨</button>
+            <button>📝</button>
+            <button>✂️</button>
         </div>
+        <div id="announce-container" class="flex-column-centre">
+            <div id="announcer">
+                <p id="announce-text">First to 5 rounds is the winner.</p>
+            </div>
+            <!-- <div id="tally">
+                <p id="tally-text">Your Score: 0 | Computer score: 0</p>
+            </div> -->
+        </div>
+    </div>
+    <div id="info-container">
+        <div class="info-box box-shadow">
+            <p>You: 0 wins</p>
+        </div>
+        <div class="info-box box-shadow">
+            <p>Round 0</p>
+        </div>
+        <div class="info-box box-shadow">
+            <p>AI: 0 wins</p>
+        </div>
+    </div>
+    <div id="footer" class="flex-column-centre">
+        <p>Designed and coded by @winnytp</p>
     </div>
 </body>
 </html>
