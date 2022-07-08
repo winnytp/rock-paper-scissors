@@ -63,7 +63,7 @@ body {
 
 #play-area {
     /* flex-grow: 1; */
-    background-color: #fafafa;
+    background-color: white;
     /* width: 75vw;
     max-width: 1152px; */
     padding: 3rem 1rem;
@@ -93,6 +93,12 @@ body {
     background-color: rgba(0, 0, 0, 0.15);
     cursor: pointer;
     border-radius: 50%;
+}
+
+#result-container {
+    display: flex;
+    align-items: center;
+    height: 58px;
 }
 
 #info-container {
