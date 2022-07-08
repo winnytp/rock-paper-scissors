@@ -121,7 +121,7 @@ body {
 }
 
 .info-box:nth-child(2) {
-    width: 90px;
+    /* width: 100px; */
 }
 
 .info-box:nth-child(3) {
@@ -134,7 +134,7 @@ body {
 }
 
 #footer > p {
-    font-family: sans-serif;
+    font-family: 'IBM Plex Sans', sans-serif;
     color: rgba(0, 0, 0, 0.45);
     font-size: 14px;
     text-transform: none;
