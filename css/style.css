@@ -145,3 +145,32 @@ body {
     font-size: 14px;
     text-transform: none;
 }
+
+#win-loss-container {
+    padding: 1.5rem 0;
+}
+
+#win-loss-p {
+    font-size: 14px;
+}
+
+#win-loss-p > span {
+    padding: 0.25rem 0.35rem;
+    margin: 0 0.15rem;
+    border-radius: 3px;
+}
+
+.win {
+    color: rgb(33, 170, 33);
+    background-color: rgba(33, 170, 33, 0.25);
+}
+
+.loss {
+    color: rgb(178, 12, 12);
+    background-color: rgba(178, 12, 12, 0.25);
+}
+
+.draw {
+    color: #231b1b;
+    background-color: rgba(0, 0, 0, 0.15);
+}
