@@ -1,28 +1,29 @@
-console.log('Rock Paper Scissors');
+// Query Selectors
+const userButtons = document.querySelectorAll('button');
+const pResult = document.getElementById('result-txt');
+const pPlayerTally = document.getElementById('p-tally-txt');
+const pComputerTally = document.getElementById('c-tally-txt');
+const pRound = document.getElementById('round-txt');
 
+// Event Listeners
+userButtons.forEach((button) => {
+    button.addEventListener('click', playRound); // when player clicks button, play a round of rock, paper, scissors
+});
+
+// Initialise variables
 let round = 0;
 let computerTally = 0;
 let playerTally = 0;
 
+// Function: computer picks rock, paper or scissors and returns value
 function computerTurn() {
-    let outcome = Math.floor(Math.random() * 3) + 1;
-    if (outcome === 1) return 'Rock';
-    if (outcome === 2) return 'Scissors';
-    if (outcome === 3) return 'Paper';
-}
-
-function playerTurn() {
-    let outcome = prompt('Choose a move [rock, paper or scissors]:').toLowerCase();
-    if (outcome === 'rock' || outcome === 'paper' || outcome === 'scissors') {
-        return outcome;
-    } else {
-        alert('Invalid response, please try again.');
-        return playerTurn();
-    }
+    let outcome = Math.floor(Math.random() * 3);
+    if (outcome === 0) return 'Rock';
+    if (outcome === 1) return 'Scissors';
+    if (outcome === 2) return 'Paper';
 }
 
 function playRound(pMove, cMove) {
-    // pMove = playerTurn();
     pMove = this.dataset.value;
     cMove = computerTurn();
     pMove = capitalise(pMove);
@@ -33,12 +34,12 @@ function playRound(pMove, cMove) {
         return writeTally('draw', pMove);
     }
 
-    if (pMove === 'Rock' && cMove === 'Scissors') return addScore('player', pMove, cMove);
-    if (pMove === 'Scissors' && cMove === 'Paper') return addScore('player', pMove, cMove);
-    if (pMove === 'Paper' && cMove === 'Rock') return addScore('player', pMove, cMove);
-    if (cMove === 'Rock' && pMove === 'Scissors') return addScore('computer', cMove, pMove);
-    if (cMove === 'Scissors' && pMove === 'Paper') return addScore('computer', cMove, pMove);
-    if (cMove === 'Paper' && pMove === 'Rock') return addScore('computer', cMove, pMove);
+    if (pMove === 'Rock' && cMove === 'Scissors') return computeScore('player', pMove, cMove);
+    if (pMove === 'Scissors' && cMove === 'Paper') return computeScore('player', pMove, cMove);
+    if (pMove === 'Paper' && cMove === 'Rock') return computeScore('player', pMove, cMove);
+    if (cMove === 'Rock' && pMove === 'Scissors') return computeScore('computer', cMove, pMove);
+    if (cMove === 'Scissors' && pMove === 'Paper') return computeScore('computer', cMove, pMove);
+    if (cMove === 'Paper' && pMove === 'Rock') return computeScore('computer', cMove, pMove);
 }
 
 function checkWinner() {
@@ -61,7 +62,8 @@ function checkWinner() {
     return console.log('No winner yet.')
 }
 
-function addScore(winner, winningMove, losingMove) {
+// Function: record score based on who won the round and output result to HTML DOM
+function computeScore(winner, winningMove, losingMove) {
     round += 1;
     if (winner === 'player') playerTally += 1;
     if (winner === 'computer') computerTally += 1;
@@ -70,12 +72,14 @@ function addScore(winner, winningMove, losingMove) {
     checkWinner();
 }
 
+// Function: output latest results (winner, moves) to DOM
 function announceTally(winnerSelection, loserSelection, winner) {
     console.log(`${winnerSelection} beats ${loserSelection.toLowerCase()}. ` + capitalise(winner) + ` has won this round.`)
     console.log(`User: ${playerTally} rounds won.`);
     console.log(`Computer: ${computerTally} rounds won.`)
 }
 
+// Function: output round data to the DOM
 function writeTally(winner, winMove, loseMove) {
     pRound.textContent = 'Round ' + round.toString();
     pPlayerTally.textContent = 'You: ' + playerTally.toString() + ' wins';
@@ -124,15 +128,3 @@ function convertToEmoji(text) {
         return '✂️';
     }
 }
-
-// Query Selectors
-const userButtons = document.querySelectorAll('button');
-const pResult = document.getElementById('result-txt');
-const pPlayerTally = document.getElementById('p-tally-txt');
-const pComputerTally = document.getElementById('c-tally-txt');
-const pRound = document.getElementById('round-txt');
-
-// Event Listeners
-userButtons.forEach((button) => {
-    button.addEventListener('click', playRound);
-});
