@@ -4,6 +4,7 @@ const pResult = document.getElementById('result-txt');
 const pPlayerTally = document.getElementById('p-tally-txt');
 const pComputerTally = document.getElementById('c-tally-txt');
 const pRound = document.getElementById('round-txt');
+const pWinLoss = document.getElementById('win-loss-p');
 
 // Event Listeners
 userButtons.forEach((button) => {
@@ -31,6 +32,7 @@ function playRound(pMove, cMove) {
     if (pMove === cMove) {
         console.log(`Draw, both chose ${convertToEmoji(pMove)}`);
         round += 1;
+        drawRoundResult('draw');
         return writeTally('draw', pMove);
     }
 
@@ -65,8 +67,14 @@ function checkWinner() {
 // Function: record score based on who won the round and output result to HTML DOM
 function computeScore(winner, winningMove, losingMove) {
     round += 1;
-    if (winner === 'player') playerTally += 1;
-    if (winner === 'computer') computerTally += 1;
+    if (winner === 'player') {
+        playerTally += 1;
+        drawRoundResult('win');
+    }
+    if (winner === 'computer') {
+        computerTally += 1;
+        drawRoundResult('loss');
+    }
     writeTally(winner, winningMove, losingMove);
     announceTally(winningMove, losingMove, winner);
     checkWinner();
@@ -109,10 +117,33 @@ function resetText() {
     pPlayerTally.textContent = 'You: 0 wins';
     pComputerTally.textContent = 'AI: 0 wins';
     pRound.textContent = 'Round 0';
+    pWinLoss.innerHTML = '';
 }
 
 function capitalise(string) {
     return string[0].toUpperCase() + string.slice(1);
+}
+
+function drawRoundResult(result) {
+    let span = document.createElement('span');
+
+    if (result === 'win') {
+        span.classList.add('win');
+        span.innerText = 'W';
+        pWinLoss.appendChild(span);
+    }
+
+    if (result === 'loss') {
+        span.classList.add('loss');
+        span.innerText = 'L';
+        pWinLoss.appendChild(span);
+    }
+
+    if (result === 'draw') {
+        span.classList.add('draw');
+        span.innerText = 'D';
+        pWinLoss.appendChild(span);
+    }
 }
 
 function convertToEmoji(text) {
