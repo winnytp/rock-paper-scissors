@@ -15,6 +15,7 @@ userButtons.forEach((button) => {
 let round = 0;
 let computerTally = 0;
 let playerTally = 0;
+let resetRound = false;
 
 // Function: computer picks rock, paper or scissors and returns value
 function computerTurn() {
@@ -28,6 +29,11 @@ function playRound(pMove, cMove) {
     pMove = this.dataset.value;
     cMove = computerTurn();
     pMove = capitalise(pMove);
+
+    if (resetRound === true) {
+        resetText();
+        resetRound = false;
+    }
 
     if (pMove === cMove) {
         console.log(`Draw, both chose ${convertToEmoji(pMove)}`);
@@ -47,16 +53,16 @@ function playRound(pMove, cMove) {
 function checkWinner() {
     if (playerTally === 5 || computerTally === 5) {
 
-        resetText();
+        resetRound = true;
 
         if (playerTally > computerTally) {
-            alert('User wins.');
+            setTimeout(() => alert('User wins.'), 1);
             resetScore();
             return console.log('Player wins');
         }
 
         if (computerTally > playerTally) {
-            alert('Computer wins.');
+            setTimeout(() => alert('Computer wins.'), 1);
             resetScore();
             return console.log('Computer wins');
         }
