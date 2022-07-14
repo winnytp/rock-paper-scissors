@@ -130,7 +130,7 @@ body {
     margin-top: auto;
 }
 
-#footer > p {
+#footer > p, #footer > p > a {
     font-family: 'IBM Plex Sans', sans-serif;
     color: rgba(0, 0, 0, 0.45);
     font-size: 14px;
