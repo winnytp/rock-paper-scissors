@@ -50,7 +50,8 @@ body {
     align-items: center;
     justify-content: center;
     padding: 1rem 0;
-    height: 12vh;
+    height: 9vh;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 #header > h1 {
@@ -63,6 +64,7 @@ body {
     background-color: white;
     padding: 3rem 1rem;
     border-radius: 9px;
+    margin: auto;
 }
 
 #btn-container {
@@ -78,6 +80,7 @@ body {
     transition: transform .3s ease-in-out, background-color .5s, border-radius .2s ease-in-out;
     background-color: rgba(0, 0, 0, 0);
     border: 1px solid rgba(0, 0, 0, 0.15);
+    aspect-ratio: 1 / 1;
 }
 
 #btn-container > button:hover {
@@ -147,6 +150,7 @@ body {
     padding: 0.25rem 0.35rem;
     margin: 0 0.15rem;
     border-radius: 3px;
+    aspect-ratio: 1 / 1;
 }
 
 .win {
