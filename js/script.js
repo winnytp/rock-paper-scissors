@@ -1,8 +1,9 @@
 console.log("Rock Paper Scissors");
+console.log("To start, type playGame() and press the Enter key.")
 
 // starting variable declarations
 let userScore = 0, computerScore = 0, round = 0;
-let gameStarted = false;
+let gameJustEnded = false;
 let lastPlayed = undefined;
 
 function getUserInput() {
@@ -40,13 +41,11 @@ function getComputerInput() {
     return console.log("Something went wrong with getComputerInput function...");
 }
 
-function startGame() {
-    gameStarted = true;
-}
-
-function playRound() {
+function playGame() {
     let userChoice;
     let computerChoice;
+
+    console.log(`Round ${round}`);
 
     // input the choices for computer and user, store in variables
     computerChoice = getComputerInput();
@@ -68,7 +67,18 @@ function playRound() {
 
     ++round; // increment round counter
 
-    return;
+    if (checkGameWinner() === false) { 
+        return playGame();
+    } else {
+        if (userScore > computerScore) {
+            console.log(`You have won ${userScore} rounds to ${computerScore}. First to 5 wins. You are the winner.`)
+        } else {
+            console.log(`The opponent won ${computerScore} rounds to ${userScore} rounds. First to 5 wins. You have lost.`)
+        }
+        resetGameVariables();
+    }
+
+    return console.log("Thanks for playing. To restart, type playGame() and press Enter.");
 }
 
 function displayRoundResult(winner, winnerChoice, loserChoice) {
@@ -77,7 +87,7 @@ function displayRoundResult(winner, winnerChoice, loserChoice) {
     } else if (winner === "draw") {
         console.log(`You played ${winnerChoice} against ${winnerChoice} resulting in a draw.`);
     } else { // if computer won, display their results
-        console.log(`You played ${loserChoice} against ${winnerChoice} and lost.`)
+        console.log(`You played ${loserChoice} against ${winnerChoice} and lost.`);
     }
     console.log(`Your score: ${userScore}`);
     console.log(`Opponent's score: ${computerScore}`);
@@ -86,9 +96,11 @@ function displayRoundResult(winner, winnerChoice, loserChoice) {
 
 function checkGameWinner() {
     // check if game has a winner yet (first to 5 wins)
-    if (userScore != 5 || computerScore != 5) { return }
-    if (userScore = 5) { return console.log("You won!") }
-    if (computerScore = 5) { return (console.log("You lost!")) }
+    if (userScore === 5 || computerScore === 5) {
+        return true;
+    } else {
+        return false;
+    }
 }
 
 function checkRoundResult(user, computer) {
