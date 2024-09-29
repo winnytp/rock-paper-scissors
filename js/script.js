@@ -3,8 +3,6 @@ console.log("To start, type playGame() and press the Enter key.")
 
 // starting variable declarations
 let userScore = 0, computerScore = 0, round = 0;
-let gameJustEnded = false;
-let lastPlayed = undefined;
 
 function getUserInput() {
     let userChoice = prompt("Type your selection (rock, paper, scissors): ");
@@ -38,7 +36,6 @@ function getComputerInput() {
     if (randomSelection === 1) { return "rock" };
     if (randomSelection === 2) { return "paper" };
     if (randomSelection === 3) { return "scissors"};
-    return console.log("Something went wrong with getComputerInput function...");
 }
 
 function playGame() {
@@ -121,6 +118,4 @@ function resetGameVariables() {
     userScore = 0;
     computerScore = 0;
     round = 0;
-    gameStarted = false;
-    lastPlayed = undefined;
 }
