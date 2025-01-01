@@ -16,7 +16,7 @@ function playGame(choice) {
     let computerChoice;
     let userChoice;
 
-    console.log(`Round ${round}`);
+    // console.log(`Round ${round}`);
     roundCount.textContent = `Round ${round}`;
 
     // input the choices for computer and user, store in variables
@@ -43,10 +43,10 @@ function playGame(choice) {
         return;
     } else {
         if (playerScore > computerScore) {
-            console.log(`You have won ${playerScore} rounds to ${computerScore}. First to 5 wins. You are the winner.`)
-            modalText.textContent = `You won!`;
+            // console.log(`You have won ${playerScore} rounds to ${computerScore}. First to 5 wins. You are the winner.`)
+            modalText.textContent = `You won, nice!`;
         } else {
-            console.log(`The opponent won ${computerScore} rounds to ${playerScore} rounds. First to 5 wins. You have lost.`)
+            // console.log(`The opponent won ${computerScore} rounds to ${playerScore} rounds. First to 5 wins. You have lost.`)
             modalText.textContent = `You lost, sorry.`;
         }
         modal.classList.remove('hidden');
@@ -57,25 +57,25 @@ function playGame(choice) {
 
 function displayRoundResult(winner, winnerChoice, loserChoice) {
     if (winner === "player") { // if player won, display their results
-        console.log(`You played ${winnerChoice} against ${loserChoice} and won.`);
+        // console.log(`You played ${winnerChoice} against ${loserChoice} and won.`);
         roundStatus.textContent = `You played ${winnerChoice} against ${loserChoice}.`;
         roundWinner.textContent = "You won!";
         playerScoreText.textContent = `Score: ${playerScore}`;
         updateHPBar(winner);
     } else if (winner === "draw") {
-        console.log(`You played ${winnerChoice} against ${winnerChoice} resulting in a draw.`);
+        // console.log(`You played ${winnerChoice} against ${winnerChoice} resulting in a draw.`);
         roundStatus.textContent = `You played ${winnerChoice} against ${winnerChoice}.`;
         roundWinner.textContent = "It's a draw!";
         updateHPBar(winner);
     } else { // if computer won, display their results
-        console.log(`You played ${loserChoice} against ${winnerChoice} and lost.`);
+        // console.log(`You played ${loserChoice} against ${winnerChoice} and lost.`);
         roundStatus.textContent = `You played ${loserChoice} against ${winnerChoice}.`;
         roundWinner.textContent = "You lost!";
         computerScoreText.textContent = `Score: ${computerScore}`;
         updateHPBar(winner);
     }
-    console.log(`Your score: ${playerScore}`);
-    console.log(`Opponent's score: ${computerScore}`);
+    // console.log(`Your score: ${playerScore}`);
+    // console.log(`Opponent's score: ${computerScore}`);
     return;
 }
 
