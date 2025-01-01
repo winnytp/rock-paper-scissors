@@ -83,7 +83,9 @@ button {
     transition: transform 0.3s ease;
 }
 
-button:hover {
+button#rock:hover, 
+button#paper:hover, 
+button#scissors:hover {
     transform: scale(1.1);
 }
 
@@ -108,10 +110,6 @@ button img {
     color: #999;
 }
 
-.rock {
-    position: relative;
-}
-
 .tooltip {
     text-align: center;
     color: #fff;
@@ -123,4 +121,28 @@ button img {
 
 .tooltip p {
     padding: 10px 20px;
+}
+
+.hidden {
+    display: none!important;
+}
+
+.transparent {
+    background-color: rgba(0, 0, 0, 0)!important;
+}
+
+.modal {
+    position: fixed;
+    padding: 3rem 15rem;
+    border-radius: 16px;
+    z-index: 9;
+    color: #fff;
+    background-color: #272822;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 6px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.modal p {
+    font-size: 28px;
 }

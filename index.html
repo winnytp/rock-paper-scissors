@@ -3,12 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rock Paper Scissors - Game</title>
     <link rel="stylesheet" href="./css/style.css">
     <script src="js/script.js" defer></script>
 </head>
 <body>
     <div class="wrapper">
+        <div class="modal hidden">
+            <p class="modal-text">You won!</p>
+            <button id="modal-btn">Reset</button>
+        </div>
         <div class="content">
             <div class="heading">
                 <h1>Rock Paper Scissors</h1>
@@ -17,13 +21,13 @@
                 <div class="player-score">
                     <h2>Player</h2>
                     <div class="score-progress-bar">
-                        <div class="score-item green" data-player="1"></div>
-                        <div class="score-item green" data-player="2"></div>
-                        <div class="score-item green" data-player="3"></div>
-                        <div class="score-item green" data-player="4"></div>
                         <div class="score-item green" data-player="5"></div>
+                        <div class="score-item green" data-player="4"></div>
+                        <div class="score-item green" data-player="3"></div>
+                        <div class="score-item green" data-player="2"></div>
+                        <div class="score-item green" data-player="1"></div>
                     </div>
-                    <p class="score-text">Score: 0</p>
+                    <p id="player-score" class="score-text">Score: 0</p>
                 </div>
                 <div class="computer-score">
                     <h2>Computer</h2>
@@ -34,31 +38,31 @@
                         <div class="score-item blue" data-computer="4"></div>
                         <div class="score-item blue" data-computer="5"></div>
                     </div>
-                    <p class="score-text">Score: 0</p>
+                    <p id="computer-score" class="score-text">Score: 0</p>
                 </div>
             </div>
             <div class="choices">
                 <div class="rock">
-                    <button><img src="./img/hand_fist_icon.png" alt="" draggable="false"></button>
+                    <button id="rock"><img src="./img/hand_fist_icon.png" alt="" draggable="false"></button>
                     <div class="tooltip">
                         <p>Rock</p>
                     </div>
                 </div>
                 <div class="paper">
-                    <button><img src="./img/hand_palm_icon.png" alt="" draggable="false"></button>
+                    <button id="paper"><img src="./img/hand_palm_icon.png" alt="" draggable="false"></button>
                     <div class="tooltip">
                         <p>Paper</p>
                     </div>
                 </div>
                 <div class="scissors">
-                    <button><img src="./img/hand_scissors_icon.png" alt="" draggable="false"></button>
+                    <button id="scissors"><img src="./img/hand_scissors_icon.png" alt="" draggable="false"></button>
                     <div class="tooltip">
                         <p>Scissors</p>
                     </div>
                 </div>
             </div>
             <div class="rounds">
-                <h2 class="round-counter">Round 1</h2>
+                <h2 class="round-count">Round 1</h2>
                 <p class="round-status">Click a button to start</p>
                 <p class="round-winner light-gray">-- Game not started --</p>
             </div>
