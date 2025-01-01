@@ -10,13 +10,9 @@ function getUserInput(choice) {
 }
 
 function getComputerInput() {
-    // generate random number between 1-3
-    let randomSelection = Math.floor((Math.random() * 3) + 1);
-
-    // apply random number to a valid selection in rock, paper, scissors.
-    if (randomSelection === 1) { return "rock" };
-    if (randomSelection === 2) { return "paper" };
-    if (randomSelection === 3) { return "scissors"};
+    const choices = ["rock", "paper", "scissors"]; 
+    let randomSelection = Math.floor(Math.random() * 3); 
+    return choices[randomSelection];
 }
 
 function playGame(choice) {
