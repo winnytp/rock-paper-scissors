@@ -1,6 +1,3 @@
-console.log("Rock Paper Scissors");
-console.log("To start, type playGame() and press the Enter key.")
-
 // starting variable declarations
 let playerScore = 0, computerScore = 0, round = 1;
 
